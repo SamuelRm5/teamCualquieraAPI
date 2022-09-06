@@ -36,6 +36,10 @@ public class Transaction {
     @JoinColumn( name = "employee", referencedColumnName = "employee_id")
     private Employee employee;
 
+    public Transaction(){
+        
+    }
+
     public Transaction(Long id, Float amount, Boolean entry, String concept,Date updatedAt,
             Date createdAt, Enterprise enterprise, Employee employee) {
         this.id = id;
