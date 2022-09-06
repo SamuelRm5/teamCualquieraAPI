@@ -16,7 +16,7 @@ public class EnterpriseControlador {
     EnterpriseRepositorio repo;
 
     @RequestMapping(value = "/enterprises", method = RequestMethod.GET)
-    public List<Enterprise> showAll(@RequestBody Enterprise enterprise) {
+    public List<Enterprise> showAll() {
         return repo.findAll();
     }
 
