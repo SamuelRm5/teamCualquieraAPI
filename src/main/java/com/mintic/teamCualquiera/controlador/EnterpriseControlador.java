@@ -36,4 +36,10 @@ public class EnterpriseControlador {
         return repo.save(enterprise);
     }
 
+    @RequestMapping(value = "/enterprises/{id}", method = RequestMethod.DELETE)
+    public String delete(@PathVariable Long id) {
+        repo.deleteById( id );
+        return "Enterprise deleted";
+    }
+
 }
