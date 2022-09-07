@@ -1,5 +1,6 @@
 package com.mintic.teamCualquiera.repositorio;
 
+import java.sql.ResultSet;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,5 +14,8 @@ public interface TransactionRepositorio extends JpaRepository<Transaction, Long>
 
     @Query(value = "SELECT * FROM transaction WHERE enterprise=:id", nativeQuery=true)
     List<Transaction> transactionByID ( Long id );
+
+    @Query(value = "DELETE FROM transaction WHERE enterprise=:id", nativeQuery=true)
+    void deleteTransactionByID ( Long id );
     
 }

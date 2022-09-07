@@ -3,6 +3,8 @@ package com.mintic.teamCualquiera.controlador;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.mintic.teamCualquiera.modelo.Enterprise;
@@ -47,10 +49,10 @@ public class TransactionControlador {
         return repo.save( transaction );
     }
 
-    // @RequestMapping(value = "/enterprises/{id}/movements", method = RequestMethod.DELETE)
-    // public String delete(@PathVariable Long id ) {
-    //     repo.deleteById( id );
-    //     return "Movement deleted";
-    // }
+    @RequestMapping(value = "/enterprises/{id}/movements", method = RequestMethod.DELETE)
+    public ResponseEntity<String> delete(@PathVariable Long id ) {
+        repo.deleteTransactionByID( id );
+        return new ResponseEntity<>("Movement deleted",HttpStatus.OK);
+    }
 
 }
