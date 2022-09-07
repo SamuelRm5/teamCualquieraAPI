@@ -22,7 +22,7 @@ public class Transaction {
     @Column
     private String concept;
 
-    @Column
+    @Column(nullable = true)
     private Date updatedAt;
 
     @Column
