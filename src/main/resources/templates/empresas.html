@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <title>Team Cualquiera</title>
+</head>
+<body>
+
+    <div id="menu-icon" class="menu-icon">
+        <img src="../images/barras.png" alt="">
+    </div>
+
+    <div id="menu" class="menu_izquierdo">
+        <img src="https://res.cloudinary.com/samuelrm5/image/upload/v1663172037/logoBlanco_oikm1r.png" alt="">
+        <a href="/">Inicio</a>
+        <a href="/ingresos" id="btnIngresos">Ingresos y egresos</a>
+        <a href="/usuarios" id="btnUsuarios">Usuarios</a>
+        <a class="active" id="btnEmpresas">Empresas</a>
+        <div id="layer" class="close hidden"></div>
+    </div>
+    <header>
+        <img src="https://res.cloudinary.com/samuelrm5/image/upload/v1663172037/logoBlanco_oikm1r.png" alt="logo">
+    </header>
+
+    <!------------ Código aquí ------------>
+
+    <div class="cuadros_inicio">
+        <div id="usuarioSection" class="ingresosSection">
+            <h1>Sistema de gestión de Empresas</h1>
+            <h2>Empresas</h2>
+            <a href="/empresanueva">Nuevo</a>
+            <table>
+            <tr>
+                <th>NIT</th>
+                <th>Nombre</th>
+                <th>Teléfono</th>
+                <th>Dirección</th>
+            </tr>
+            <tr th:each="enterprise : ${enterprises}">
+                <td th:text="${enterprise.document}"></td>
+                <td th:text="${enterprise.name}"></td>
+                <td th:text="${enterprise.phone}"></td>
+                <td th:text="${enterprise.address}"></td>
+            </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-------------------------------------->
+    <script th:src="@{/js/index.js}"></script>
+</body>
+</html>

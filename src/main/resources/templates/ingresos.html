@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <title>Team Cualquiera</title>
+</head>
+<body>
+
+    <div id="menu-icon" class="menu-icon">
+        <img src="../images/barras.png" alt="">
+    </div>
+
+    <div id="menu" class="menu_izquierdo">
+        <img src="https://res.cloudinary.com/samuelrm5/image/upload/v1663172037/logoBlanco_oikm1r.png" alt="">
+        <a href="/">Inicio</a>
+        <a class="active" id="btnIngresos">Ingresos y egresos</a>
+        <a href="/usuarios" id="btnUsuarios">Usuarios</a>
+        <a href="/empresas" id="btnEmpresas">Empresas</a>
+        <div id="layer" class="close hidden"></div>
+    </div>
+    <header>
+        <img src="https://res.cloudinary.com/samuelrm5/image/upload/v1663172037/logoBlanco_oikm1r.png" alt="logo">
+    </header>
+
+    <!------------ Código aquí ------------>
+
+    <div class="cuadros_inicio">
+        <div id="ingresosSection" class="ingresosSection">
+            <h1>Sistema de gestión de Ingresos y Gastos</h1>
+            <h2>Ingresos y egresos</h2>
+            <button id="btnNuevoIngreso">Nuevo</button>
+            <table>
+            <tr>
+            <th>Concepto</th>
+            <th>Monto</th>
+            <th>Fecha</th>
+            <th>Usuario</th>
+            </tr>
+            <tr>
+            <td>Alfreds Futterkiste</td>
+            <td>Maria Anders</td>
+            <td>Germany</td>
+            <td>Maria Anders</td>
+            </tr>
+            <tr>
+            <td>Centro comercial</td>
+            <td>Francisco Chang</td>
+            <td>Mexico</td>
+            <td>Francisco Chang</td>
+            </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-------------------------------------->
+    <script th:src="@{/js/index.js}"></script>
+</body>
+</html>

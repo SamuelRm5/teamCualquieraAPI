@@ -19,9 +19,26 @@ public class EmployeeControlador {
         return repo.findAll();
     }
 
+    @RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
+    public Employee listarUno(@PathVariable String id) {
+        return repo.findById(id).get();
+    }
+
     @RequestMapping(value = "/users", method = RequestMethod.POST)
     public Employee crear(@RequestBody Employee employee) {
         return repo.save(employee);
+    }
+
+    @RequestMapping(value = "/users/{id}", method = RequestMethod.PATCH)
+    public Employee actualizar(@PathVariable String id, @RequestBody Employee employee) {
+        employee.setEmployeeId(id);
+        return repo.save(employee);
+    }
+
+    @RequestMapping(value = "/users/{id}", method = RequestMethod.DELETE)
+    public String eliminar(@PathVariable String id) {
+        repo.deleteById(id);
+        return "Employee deleted";
     }
 
 }

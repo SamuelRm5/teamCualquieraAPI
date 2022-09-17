@@ -1,0 +1,359 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+html{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: scroll;
+}
+.menu-icon{
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: #2a75ff;
+    position: absolute;
+    top: 4px;
+    left: 10px;
+    padding: 10px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.menu-icon img{
+    width: 20px;
+}
+body{
+    background-color: aliceblue;
+    width: 500px;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: relative;
+}
+header{
+    align-items: center;
+    background-color: #2a75ff;
+    display: flex;
+    justify-content: center;
+    padding: 5px 10px;
+}
+header img{
+    width: 40px;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+a{
+    background: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: black;
+    font-size: 15px;
+    font-weight: 400;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    width: 80%;
+    height: 40px;
+}
+a:hover{
+    background-color: #acd8ff;
+    color: black;
+    transition: .4s;
+}
+
+/* Menú desplegable */
+.menu_izquierdo{
+    align-items: center;
+    background-color: #2a75ff;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 280px;
+    height: 100vh;
+    gap: 15px;
+    position: absolute;
+    transition: 1s;
+    top: 0;
+    left: -280px;
+    z-index: 1;
+}
+.menu_izquierdo img{
+    margin: 50px 0px;
+    width: 100px;
+}
+.menu_izquierdo.active{
+    transform: translateX(280px);
+    transition: 1s;
+}
+.menu_izquierdo .close{
+    background: #00000094;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 280px;
+    width: 100vw;
+    height: 100vh;
+}
+.menu_izquierdo .close.hidden{
+    display: none;
+}
+/* Botones */
+.menu_izquierdo a{
+    background: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: black;
+    font-size: 15px;
+    font-weight: 400;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    width: 80%;
+    height: 40px;
+}
+.menu_izquierdo a:hover{
+    background-color: #acd8ff;
+    color: black;
+    transition: .4s;
+}
+.menu_izquierdo a.active{
+    transition: .4s;
+    background-color: #ff7622;
+    color: white;
+    pointer-events: none;
+    position: relative;
+}
+.menu_izquierdo a.active:hover{
+    transition: .4s;
+    background-color: #ff7622;
+    color: white;
+}
+.menu_izquierdo a.active::before{
+    content: '';
+    background-color: white;
+    border-radius: 50%;
+    height: 5px;
+    width: 5px;
+    position: absolute;
+    left: 10px;
+    top: 18px;
+}
+
+/* Cuadros Inicio */
+.cuadros_inicio{
+    animation: fadeIn 1s ease-in;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    padding: 50px;
+    gap: 20px;
+}
+.cuadros_inicio .cuadro {
+    align-items: center;
+    border-radius: 5px;
+    display: flex;
+    color: white;
+    font-size: 20px;
+    justify-content: center;
+    padding: 20px 50px;
+    text-align: center;
+    width: 100%;
+    height: 200px;
+    position: relative;
+    flex-direction: column;
+    gap: 20px;
+}
+.cuadros_inicio .cuadro.a{
+    background-color: #ff7622;
+}
+.cuadros_inicio .cuadro img{
+    width: 40px;
+}
+.cuadros_inicio .cuadro.b{
+    background-color: #4caf50;
+}
+.cuadros_inicio .cuadro.c{
+    background-color: #3f51b5;
+}
+
+/* Ingresos y egresos */
+.ingresosSection{
+    animation: fadeIn 1s ease-in;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+    width: 100%;
+}
+.ingresosSection h1{
+    color: #2964ff;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.ingresosSection h2{
+    align-self: flex-start;
+    border-bottom: 2px solid #ff5722;
+    color: #ff5722;
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+.ingresosSection button{
+    align-self: flex-start;
+    background: #467aff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+    width: 100px;
+}
+.ingresosSection button:hover{
+    transition: .4s;
+    background-color: #2964ff;
+}
+.ingresosSection table{
+    border-radius: 5px;
+    width: 100%;
+}
+.ingresosSection th{
+    background-color: #2964ff;
+    color: white;
+    padding: 10px;
+}
+.ingresosSection td{
+    text-align: center;
+    padding: 10px 5px;
+}
+.ingresosSection tr:nth-child( 2n+1 ){
+    background-color: #d0deff;
+}
+
+/* Form */
+.formIngresos{
+    align-items: center;
+    background-color: #dddddd;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    width: 60%;
+}
+.formIngresos h1{
+    font-size: 22px;
+    color: black;
+}
+.formIngresos input{
+    border: none;
+    border-radius: 6px;
+    height: 30px;
+    padding: 5px 10px;
+}
+.formIngresos button{
+    align-self: center;
+    margin-top: 20px;
+}
+.formIngresos input:focus{
+    outline: 2px solid #d0deff;
+}
+.formIngresos form{
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+} 
+
+
+/* Formulario para Ingresos y egresos */
+.ingresosSection a{
+    align-self: flex-start;
+    background: #467aff;
+    color: white;
+    font-size: 15px;
+    font-weight: 400;
+    width: 100px;
+    padding: 5px;
+    height: 30px;
+}
+.ingresosSection a img{
+    width: 15px;
+}
+.ingresosSection a:hover{
+    background: #99b6ff;
+    color: white;
+    transition: .4s;
+}
+.ingresosSection form{
+    animation: fadeIn 1s ease-in;
+    width: 100%;
+}
+.ingresosSection fieldset{
+    align-items: center;
+    background-color: white;
+    border: 3px double #cfcfcf;
+    border-radius: 5px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    position: relative;
+
+}
+.ingresosSection fieldset .fecha{
+    position: absolute;
+    top: -10px;
+    left: 5px;
+    font-size: 13px;
+}
+.ingresosSection fieldset legend{
+    font-size: 20px;
+    text-align: center;
+    width: 70%;
+    color: #2a75ff;
+    font-weight: 700;
+}
+.ingresosSection fieldset input, select{
+    border: 1px solid #d3d3d3;
+    border-radius: 6px;
+    height: 40px;
+    width: 80%;
+    padding: 10px 20px;
+}
+.ingresosSection fieldset input:focus,select:focus{
+    outline: 2px solid #2a75ff60;
+}
+.ingresosSection fieldset button{
+    align-self: center;
+}
+
+/* Sección Usuarios-Empleados */
+.radios{
+    width: 80%;
+}
+.radio{
+    width: 25px !important;
+    height: 15px !important;
+}
+
+/* Animación */
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
