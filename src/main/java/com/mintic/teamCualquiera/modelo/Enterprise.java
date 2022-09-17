@@ -4,12 +4,15 @@ import java.sql.Date;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.GenericGenerator;
+
 @Entity
 @Table(name = "enterprise")
 public class Enterprise {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "secuencia_enterprise")
+	@GenericGenerator(name = "secuencia_enterprise", strategy="increment")
 	@Column(name = "id")
 	private Long id;
 

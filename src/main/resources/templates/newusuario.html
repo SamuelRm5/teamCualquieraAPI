@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <title>Team Cualquiera</title>
+</head>
+<body>
+
+    <div id="menu-icon" class="menu-icon">
+        <img src="../images/barras.png" alt="">
+    </div>
+
+    <div id="menu" class="menu_izquierdo">
+        <img src="https://res.cloudinary.com/samuelrm5/image/upload/v1663172037/logoBlanco_oikm1r.png" alt="">
+        <a href="/">Inicio</a>
+        <a href="/ingresos" id="btnIngresos">Ingresos y egresos</a>
+        <a class="active" id="btnUsuarios">Usuarios</a>
+        <a href="/empresas" id="btnEmpresas">Empresas</a>
+        <div id="layer" class="close hidden"></div>
+    </div>
+    <header>
+        <img src="https://res.cloudinary.com/samuelrm5/image/upload/v1663172037/logoBlanco_oikm1r.png" alt="logo">
+    </header>
+
+    <!------------ Código aquí ------------>
+
+    <div class="cuadros_inicio">
+        <div id="usuarioSection" class="ingresosSection">
+            <h1>Sistema de gestión de Empleado</h1>
+            <h2>Empleados</h2>
+            <a href="/usuarios"><img src="./images/flecha.png" /></a>
+            <form class="">
+                <fieldset>
+                    <legend>Crea tu empleado</legend>
+                    <select>
+                        <option disabled selected value="">Selecciona una empresa</option>
+                    </select>
+                    <input placeholder="Documento" type="text">
+                    <input placeholder="Email" type="email">
+                    <input placeholder="Teléfono" type="text">
+                    <div class="radios">
+                        <input class="radio" type="radio" name="rol" value="operario">
+                        <label for="operario">Operario</label>
+                        <input class="radio" type="radio" name="rol" value="admin">
+                        <label for="admin">Admin</label>
+                    </div>
+                    <button>Crear</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+    <!-------------------------------------->
+    <script th:src="@{/js/index.js}"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <title>Team Cualquiera</title>
+</head>
+<body>
+
+    <div id="menu-icon" class="menu-icon">
+        <img src="../images/barras.png" alt="">
+    </div>
+
+    <div id="menu" class="menu_izquierdo">
+        <img src="https://res.cloudinary.com/samuelrm5/image/upload/v1663172037/logoBlanco_oikm1r.png" alt="">
+        <a class="active" href="/">Inicio</a>
+        <a href="/ingresos" id="btnIngresos">Ingresos y egresos</a>
+        <a href="/usuarios" id="btnUsuarios">Usuarios</a>
+        <a href="/empresas" id="btnEmpresas">Empresas</a>
+        <div id="layer" class="close hidden"></div>
+    </div>
+    <header>
+        <img src="https://res.cloudinary.com/samuelrm5/image/upload/v1663172037/logoBlanco_oikm1r.png" alt="logo">
+    </header>
+
+    <!------------ Código aquí ------------>
+
+    <div class="cuadros_inicio">
+        <p>En nuestra aplicación podrás realizar las siguientes funciones.</p>
+        <div class="cuadro a"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135679.png" alt="">Sistema de gestión de ingresos y egresos</div>
+        <div class="cuadro b"><img src="https://cdn-icons-png.flaticon.com/512/554/554846.png" alt="">Sistema de gestión de usuarios</div>
+        <div class="cuadro c"><img src="https://cdn-icons-png.flaticon.com/512/857/857750.png" alt="">Sistema de gestión de empresas</div>
+    </div>
+
+    <!-------------------------------------->
+    <script th:src="@{/js/index.js}"></script>
+</body>
+</html>
