@@ -15,7 +15,7 @@ public class EmployeeControlador {
     EmployeeRepositorio repo;
 
     @RequestMapping(value = "/users", method = RequestMethod.GET)
-    public List<Employee> listar(@RequestBody Employee employee) {
+    public List<Employee> listar() {
         return repo.findAll();
     }
 
