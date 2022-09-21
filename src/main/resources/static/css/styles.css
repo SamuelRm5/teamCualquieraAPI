@@ -10,6 +10,26 @@ html{
     justify-content: center;
     overflow-y: scroll;
 }
+div.sameline form.identerprise{
+    align-items: center;
+    display: flex;
+    gap: 10px;
+}
+div.sameline{
+    align-self: flex-start;
+    display: flex;
+    gap: 10px;
+}
+div.sameline form.identerprise input{
+    width: 200px;
+    height: 20px;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid lightgrey;
+}
+div.sameline form.identerprise input:focus{
+    outline: 2px solid lightgrey;
+}
 .menu-icon{
     cursor: pointer;
     border-radius: 50%;

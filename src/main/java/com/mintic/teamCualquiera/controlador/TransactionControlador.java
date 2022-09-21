@@ -88,9 +88,9 @@ public class TransactionControlador {
     }
 
     @GetMapping("ingresosbyid")
-    public void listAll( @Param("identerprise") Long id ){
+    public List<Transaction> listAllByID( @Param("identerprise") Long id ){
 
-        this.service.movementByID(id);
+        return this.service.movementByID(id);
 
     }
 

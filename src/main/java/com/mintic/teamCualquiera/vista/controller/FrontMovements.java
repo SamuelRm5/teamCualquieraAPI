@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.mintic.teamCualquiera.controlador.EmployeeControlador;
 import com.mintic.teamCualquiera.modelo.Employee;
@@ -14,8 +16,6 @@ import com.mintic.teamCualquiera.modelo.Enterprise;
 import com.mintic.teamCualquiera.modelo.Transaction;
 import com.mintic.teamCualquiera.services.EnterpriseService;
 import com.mintic.teamCualquiera.services.MovementsService;
-
-import net.bytebuddy.asm.Advice.This;
 
 
 @Controller
@@ -50,10 +50,16 @@ public class FrontMovements {
     }
 
     @GetMapping("/ingresoID")
-    public String movementByID( Model model, Long param ){
+    public String movementByID( Model model, @RequestParam Long identerprise ){
 
-        List<Transaction> movements = service.movementByID(param);
-        model.addAttribute("movements", movements);
+        if ( identerprise == null ) {
+            new RedirectView("ingresos");
+        }
+        else{
+            
+            List<Transaction> movements = service.movementByID( identerprise );
+            model.addAttribute("movements", movements);
+        }
 
         return "ingresos";
     }

@@ -3,7 +3,6 @@ const $menu = document.getElementById("menu");
 const $layer = document.getElementById("layer");
 const $contenedorIngresos = document.getElementById("ingresosSection");
 
-
 const date = new Date();
 const output = String(date.getDate()).padStart(2, '0') + '/' + String(date.getMonth() + 1).padStart(2, '0') + '/' + date.getFullYear();
 
