@@ -31,29 +31,24 @@
         <div id="ingresosSection" class="ingresosSection">
             <h1>Sistema de gestión de Ingresos y Gastos</h1>
             <h2>Ingresos y egresos</h2>
-            <a href="/ingresonuevo">Nuevo</a>
-            <form th:action="@{/api/ingresosbyid}" th:method="get">
-                <input name="identerprise" type="text" placeholder="Id empresa">
-                <button type="submit">Buscar</button>
+            <a href="/ingresos"><img src="./images/flecha.png" /></a>
+            <form th:action="@{/api/ingresos}" th:method="post" th:object="${movement}">
+                <fieldset>
+                    <legend>Crea tu movimiento</legend>
+                    <select th:field="*{enterprise}">
+                        <option disabled selected value="">Selecciona una empresa</option>
+                        <option th:each="enterprise : ${enterprises}" th:text="${enterprise.name}" th:value="${enterprise.id}"></option>
+                    </select>
+                    <select th:field="*{employee}">
+                        <option disabled selected value="">Selecciona un empleado</option>
+                        <option th:each="employee : ${employees}" th:text="${employee.email}" th:value="${employee.employeeId}"></option>
+                    </select>
+
+                    <input th:field="*{amount}" placeholder="Monto" type="number">
+                    <input th:field="*{concept}" placeholder="Concepto" type="text">
+                    <button>Crear</button>
+                </fieldset>
             </form>
-            <table>
-            <tr>
-            <th>Fecha</th>
-            <th>Concepto</th>
-            <th>Monto</th>
-            <th>Usuario</th>
-            <th>Empresa</th>
-            </tr>
-
-            <tr th:each="movement : ${movements}">
-            <td th:text="${movement.createdAt}"></td>
-            <td th:text="${movement.concept}"></td>
-            <td th:text="${movement.amount}"></td>
-            <td th:text="${movement.employee.employeeId}"></td>
-            <td th:text="${movement.enterprise.name} + '(' + ${movement.enterprise.id} + ')'"></td>
-            </tr>
-
-            </table>
         </div>
     </div>
 

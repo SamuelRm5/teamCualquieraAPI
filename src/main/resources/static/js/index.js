@@ -25,21 +25,7 @@ $layer.addEventListener('click', () => {
 $nuevoIngreso.addEventListener('click', () => {
 
     $contenedorIngresos.innerHTML = `
-        <h1>Sistema de gestión de Ingresos y Gastos</h1>
-        <h2>Ingresos y egresos</h2>
-        <a href="/ingresos"><img src="./images/flecha.png" /></a>
-        <form class="">
-            <fieldset>
-                <legend>Crea tu movimiento</legend>
-                <p class="fecha">${output}</p>
-                <select>
-                    <option disabled selected value="">Selecciona una empresa</option>
-                </select>
-                <input placeholder="Monto" type="number">
-                <input placeholder="Concepto" type="text">
-                <button>Crear</button>
-            </fieldset>
-        </form>
+
     `;
 
 })
