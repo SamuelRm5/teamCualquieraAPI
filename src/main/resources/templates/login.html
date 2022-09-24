@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <title>Inicio</title>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Team Cualquiera</h2>
+        <p>Bienvenido a nuestro proyecto, aquí podrás realizar cualquier tipo de gestión administrativa.</p>
+        <img src="../images/employee.jpg" alt="">
+        <div sec:authorize="!isAuthenticated()">
+            <a th:href="@{/oauth2/authorization/auth0}">Ingresar</a>
+        </div>
+        <div class="success" sec:authorize="isAuthenticated()">
+            <h2 th:text="'Bienvenido, ' + ${user.getEmail()}"></h2>
+            <p class="success">
+                <img src="../images/correct.png" alt="">
+                Has iniciado correctamente <br>
+            </p>
+            <a class="aqui" th:href="@{/inicio}">Iniciar</a>
+            
+        </div>
+    </div>
+</body>
+</html>

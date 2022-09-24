@@ -2,23 +2,44 @@ package com.mintic.teamCualquiera.vista.controller;
 
 import java.util.List;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.mintic.teamCualquiera.modelo.Enterprise;
+import com.mintic.teamCualquiera.modelo.User;
 import com.mintic.teamCualquiera.services.EnterpriseService;
+import com.mintic.teamCualquiera.services.UserService;
 
 
 @Controller
 public class FrontControllers {
 
     EnterpriseService service;
+    UserService userService;
 
-    public FrontControllers( EnterpriseService service ) { this.service = service; }
+    public FrontControllers( EnterpriseService service, UserService userService ) { 
+        this.service = service; 
+        this.userService = userService;
+    }
    
     @GetMapping("/")
-    public String index(){ return "index"; }
+    public String index(Model model, @AuthenticationPrincipal OidcUser principal){ 
+        if (principal != null) {
+            
+            User user = this.userService.getOrCreateUser(principal.getClaims());
+            model.addAttribute("user", user);
+
+        }
+        return "login"; 
+    }
+
+    @GetMapping("/inicio")
+    public String index(){ 
+        return "index"; 
+    }
 
     @GetMapping("/usuarios")
     public String usuarios(){ return "usuarios"; }
