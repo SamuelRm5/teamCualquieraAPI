@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +7,7 @@
     <link rel="stylesheet" th:href="@{/css/styles.css}">
     <title>Team Cualquiera</title>
 </head>
-<body>
+<body sec:authorize="isAuthenticated()">
 
     <div id="menu-icon" class="menu-icon">
         <img src="../images/barras.png" alt="">
@@ -15,7 +15,7 @@
 
     <div id="menu" class="menu_izquierdo">
         <img src="https://res.cloudinary.com/samuelrm5/image/upload/v1663172037/logoBlanco_oikm1r.png" alt="">
-        <a href="/">Inicio</a>
+        <a href="/inicio">Inicio</a>
         <a class="active" id="btnIngresos">Ingresos y egresos</a>
         <a href="/usuarios" id="btnUsuarios">Usuarios</a>
         <a href="/empresas" id="btnEmpresas">Empresas</a>
