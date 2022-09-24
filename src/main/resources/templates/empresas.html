@@ -52,4 +52,13 @@
     <!-------------------------------------->
     <script th:src="@{/js/index.js}"></script>
 </body>
+<body sec:authorize="!isAuthenticated()">
+    <div class="cuadros_inicio confused">
+        <img src="../images/confused.jpg" alt="">
+        <div class="btn">
+            <p>Al parecer estás en el lugar equivocado</p>
+            <a href="/">Volver</a>
+        </div>
+    </div>
+</body>
 </html>

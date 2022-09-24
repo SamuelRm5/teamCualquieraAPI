@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<html lang="en" xmlns="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,19 +32,20 @@
             <h1>Sistema de gestión de Empleado</h1>
             <h2>Empleados</h2>
             <a href="/usuarios"><img src="./images/flecha.png" /></a>
-            <form class="">
+            <form th:action="@{/api/users}" th:method="post" th:object="${employee}">
                 <fieldset>
                     <legend>Crea tu empleado</legend>
-                    <select>
+                    <select th:field="*{enterprise}">
                         <option disabled selected value="">Selecciona una empresa</option>
+                        <option th:each="enterprise : ${enterprises}" th:text="${enterprise.name}" th:value="${enterprise.id}"></option>
                     </select>
-                    <input placeholder="Documento" type="text">
-                    <input placeholder="Email" type="email">
-                    <input placeholder="Teléfono" type="text">
+                    <input th:field="*{employeeId}" placeholder="Documento" type="text">
+                    <input th:field="*{email}" placeholder="Email" type="email">
+                    <input th:field="*{phone}" placeholder="Teléfono" type="text">
                     <div class="radios">
-                        <input class="radio" type="radio" name="rol" value="operario">
+                        <input th:field="*{role}" class="radio" type="radio" name="rol" value="Operario">
                         <label for="operario">Operario</label>
-                        <input class="radio" type="radio" name="rol" value="admin">
+                        <input th:field="*{role}" class="radio" type="radio" name="rol" value="Admin">
                         <label for="admin">Admin</label>
                     </div>
                     <button>Crear</button>
@@ -55,5 +56,14 @@
 
     <!-------------------------------------->
     <script th:src="@{/js/index.js}"></script>
+</body>
+<body sec:authorize="!isAuthenticated()">
+    <div class="cuadros_inicio confused">
+        <img src="../images/confused.jpg" alt="">
+        <div class="btn">
+            <p>Al parecer estás en el lugar equivocado</p>
+            <a href="/">Volver</a>
+        </div>
+    </div>
 </body>
 </html>

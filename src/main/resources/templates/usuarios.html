@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<html lang="en" xmlns="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,17 +39,11 @@
                 <th>Rol</th>
                 <th>Empresa</th>
             </tr>
-            <tr>
-                <td>1002</td>
-                <td>Maria@gmail.com</td>
-                <td>Operario</td>
-                <td>Nestle</td>
-            </tr>
-            <tr>
-                <td>1002</td>
-                <td>Maria@gmail.com</td>
-                <td>Operario</td>
-                <td>Nestle</td>
+            <tr th:each=" employee : ${employees}">
+                <td th:text="${employee.employeeId}"></td>
+                <td th:text="${employee.email}"></td>
+                <td th:text="${employee.role}"></td>
+                <td th:text="${employee.enterprise.name}"></td>
             </tr>
             </table>
         </div>
@@ -57,5 +51,14 @@
 
     <!-------------------------------------->
     <script th:src="@{/js/index.js}"></script>
+</body>
+<body sec:authorize="!isAuthenticated()">
+    <div class="cuadros_inicio confused">
+        <img src="../images/confused.jpg" alt="">
+        <div class="btn">
+            <p>Al parecer estás en el lugar equivocado</p>
+            <a href="/">Volver</a>
+        </div>
+    </div>
 </body>
 </html>

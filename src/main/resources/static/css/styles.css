@@ -438,6 +438,33 @@ a:hover{
     height: auto;
     justify-content: center;
 }
+.cuadros_inicio.confused{
+    background-color: #cdeeff;
+    height: 100vh;
+    overflow: scroll;
+    justify-content: center;
+    gap: 60px;
+}
+.cuadros_inicio.confused div.btn{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    height: auto;
+} 
+.cuadros_inicio.confused div.btn a{
+    background-color: #2a75ff;
+    color: white;
+    transition: .4s;
+}
+.cuadros_inicio.confused div.btn a:hover{
+    background-color: #5792ff;
+    color: white;
+}
+.cuadros_inicio.confused img{
+    width: 200px;
+}
 
 /* Animación */
 @keyframes fadeIn {
